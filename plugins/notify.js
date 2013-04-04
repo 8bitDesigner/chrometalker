@@ -1,5 +1,5 @@
 var notifications = window.webkitNotifications
-  , permission = notifications ? notifications.checkPermission() == 0 : false
+  , permission = notifications ? notifications.checkPermission() !== 0 : false
 
 plugin.onLoaded = function() {
   if (notifications && !permission) {
@@ -18,7 +18,7 @@ plugin.onLoaded = function() {
       , what = Talker.getLastInsertion().text()
       , me   = Talker.currentUser.name
 
-    if (who !== me && document.hasFocus === false) {
+    if (who !== me && document.hasFocus() === false) {
       webkitNotifications.createNotification(
         'https://talkerapp.com/images/favicon.png',
         who,

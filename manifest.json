@@ -1,0 +1,23 @@
+{
+  "name": "Talker",
+  "description": "It's a chat app, yo",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "app": {
+    "urls": [
+      "*://talkerapp.com/"
+    ],
+    "launch": {
+      "web_url": "https://talkerapp.com/login",
+      "container": "panel",
+      "width": 580,
+      "height": 850
+    }
+  },
+  "icons": {
+    "128": "favicon.png"
+  },
+  "permissions": [
+    "notifications"
+  ]
+}

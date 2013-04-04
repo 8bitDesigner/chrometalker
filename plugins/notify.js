@@ -1,5 +1,11 @@
 var notifications = window.webkitNotifications
-  , permission = notifications ? notifications.checkPermission() !== 0 : false
+  , permission = (notifications ? notifications.checkPermission() == 0 : false)
+  , focused = true;
+
+if(window.addEventListener) {
+  window.addEventListener('focus', function() { focused = true });
+  window.addEventListener('blur', function() { focused = false });
+}
 
 plugin.onLoaded = function() {
   if (notifications && !permission) {
@@ -18,7 +24,7 @@ plugin.onLoaded = function() {
       , what = Talker.getLastInsertion().text()
       , me   = Talker.currentUser.name
 
-    if (who !== me && document.hasFocus() === false) {
+    if (who !== me && (document.hasFocus() === false || focused === false)) {
       webkitNotifications.createNotification(
         'https://talkerapp.com/images/favicon.png',
         who,

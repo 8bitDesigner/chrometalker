@@ -16,4 +16,4 @@ separate chrome window.
 Copy the contents of `./plugins/notify.js` into a Talker Plugin and reload the
 page, and now you'll get notificiations whenever someone posts in chat.
 
-![](./example.png)
+![](images/example.png)

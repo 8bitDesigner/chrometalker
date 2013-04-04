@@ -15,7 +15,7 @@
     }
   },
   "icons": {
-    "128": "favicon.png"
+    "128": "images/favicon.png"
   },
   "permissions": [
     "notifications"
